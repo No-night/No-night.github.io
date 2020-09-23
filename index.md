@@ -1,7 +1,7 @@
 ## Welcome to GitHub Pages
 
 
-you can use [baidu][(https://www.baidu.com)
+you can use [baidu](https://www.baidu.com)
 
 ### Markdown
 
