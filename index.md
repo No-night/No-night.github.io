@@ -9,11 +9,11 @@
 
 ### <center>实验0：</center>
    
-<center> ![Image](http://No-night.github.io/p201812213501007.png) </center>
+<div align=center>![Image](http://No-night.github.io/p201812213501007.png) 
  
 ### <center>实验1：</center>
 
-<center> 请点击[主页](/lab/index.html) </center>
+<div align=center>请点击[主页](/lab/index.html)
   
 
  
