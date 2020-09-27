@@ -1,7 +1,7 @@
 ## Welcome to GitHub Pages
 #实验项目
   
-![Image](/p201812213501007.png)
+![Image](http://No-night.github.io/p201812213501007.png)
   
 you can use [baidu](https://www.baidu.com)
 
