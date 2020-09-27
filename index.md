@@ -1,11 +1,17 @@
-# 实验作业
+## 实验作业
 
-实验0：
+# 实验0：
    
 ![Image](http://No-night.github.io/p201812213501007.png)
   
 you can use [baidu](https://www.baidu.com)
 
+
+#实验1：
+
+[Index](/lab/index.html)
+
+  
 ### Markdown
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
