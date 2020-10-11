@@ -13,5 +13,9 @@
  
 ### 实验1：
   
-请点击[主页](/lab/index.html)
+请点击[实验1](/lab/index.html)
+
+### 实验2：
+
+请点击[实验2](/lab2/index.html)
 
