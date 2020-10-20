@@ -19,3 +19,7 @@
 
 请点击[实验2](/lab2/index.html)
 
+### 实验3：
+
+请点击[实验3](/lab3/index.html)
+
