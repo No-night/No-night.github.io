@@ -681,18 +681,6 @@ function initShapeVal(){
 		dzt = this.value;
 		buildModelViewProj();
 	});
-	document.getElementById("theta").addEventListener("input",function(event){
-		theta = this.value;
-		buildModelViewProj();
-	});
-	document.getElementById("phi").addEventListener("input",function(event){
-		phi = this.value;
-		buildModelViewProj();
-	});
-	document.getElementById("radius").addEventListener("input",function(event){
-		radius = this.value;
-		buildModelViewProj();
-	});
 	
 	var postypeRadio = document.getElementsByName("posgrp");
 	for (var i = 0; i < postypeRadio.length; i++) {
@@ -970,12 +958,12 @@ function configureBumpTexture( url ){
 }
 
 var faceUrl = [
-	'./textures/skyBoximg/pos-x.jpg',
-	'./textures/skyBoximg/neg-x.jpg',
-	'./textures/skyBoximg/neg-y.jpg',
-	'./textures/skyBoximg/pos-y.jpg',
-	'./textures/skyBoximg/pos-z.jpg',
-	'./textures/skyBoximg/neg-z.jpg',
+	'./textures/pos-x.jpg',
+	'./textures/neg-x.jpg',
+	'./textures/neg-y.jpg',
+	'./textures/pos-y.jpg',
+	'./textures/pos-z.jpg',
+	'./textures/neg-z.jpg',
 ];
 
 var cubemap_image_cnt = 0;    
@@ -1111,7 +1099,3 @@ function buildSkyBox(){
 	//gl.uniform1i( gl.getUniformLocation( programskybox, "texCubemap" ), 0 );
 	
 }
-
-
-
-
