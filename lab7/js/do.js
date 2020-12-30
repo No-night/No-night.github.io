@@ -60,10 +60,6 @@ var dz = 0.0;
 var dirx = 1;
 var diry = 1;
 
-var dxz = 0;
-var dyz = 0;
-var dzz = 0;
-
 var sx = 1;
 var sy = 1;
 var sz = 1;
@@ -351,8 +347,6 @@ function checkInput(){
 	);
 }
 
-
-
 window.onload = function initWindow(){
 	canvas = document.getElementById("gl-canvas");
 
@@ -386,11 +380,11 @@ window.onload = function initWindow(){
 	configureCubeMapTexture();
 	
 	if( texture === null ){
-	    var url = "textures/wood.jpg";
+	    var url = "./textures/world.jpg";
 	    configureTexture( url );
 	}
 	if( bumpTexture === null ){
-	    var url = "textures/roof.jpg";
+	    var url = "./textures/roof.jpg";
 	    configureBumpTexture(url);
 	}
 	
@@ -408,7 +402,7 @@ function initObjBuffers(){
 
 function initInterface(){
 	fileInput = document.getElementById("modelInput");
-	fileInput.onchange = function(event) {
+	fileInput.addEventListener("change", function (event) {
 		var file = fileInput.files[0];
 		var reader = new FileReader();
 
@@ -417,23 +411,23 @@ function initInterface(){
 			initObj();
 		}
 		reader.readAsText(file);
-	} 
+	});
 	
 	textureFileInput = document.getElementById("textureInput");
-	textureFileInput.onchagne = function(event){
+	textureFileInput.addEventListener("change", function(event){
 		var file = textureFileInput.files[0];
-		var prehead = "textures/";
+		var prehead = "./textures/";
 		var imgurl = prehead.concat(file.name);
 		configureTexture( imgurl );
-	}
+	});
 	
 	bumpFileInput = document.getElementById("bumpInput");
-	bumpFileInput.onchange = function(event){
+	bumpFileInput.addEventListener("change", function(event){
 		var file = bumpFileInput.files[0];
-		var prehead = "textures/";
+		var prehead = "./textures/";
 		var imgurl = prehead.concat(file.name);
 		configureBumpTexture( imgurl );
-	}
+	});
 	
 	initShapeVal();
 	initBeamVal();
@@ -687,6 +681,18 @@ function initShapeVal(){
 		dzt = this.value;
 		buildModelViewProj();
 	});
+	document.getElementById("theta").addEventListener("input",function(event){
+		theta = this.value;
+		buildModelViewProj();
+	});
+	document.getElementById("phi").addEventListener("input",function(event){
+		phi = this.value;
+		buildModelViewProj();
+	});
+	document.getElementById("radius").addEventListener("input",function(event){
+		radius = this.value;
+		buildModelViewProj();
+	});
 	
 	var postypeRadio = document.getElementsByName("posgrp");
 	for (var i = 0; i < postypeRadio.length; i++) {
@@ -694,7 +700,6 @@ function initShapeVal(){
 			var value = this.value;
 			if (this.checked) {
 				changePos = parseInt(value);
-				restoreSliderValue(changePos);
 			}
 		});
 	}
@@ -929,8 +934,6 @@ function configureTexture( url ){
 	//gl.activeTexture( gl.TEXTURE1 );
 	texImage = null;
 	texImage = new Image();
-	requestCORSIfNotSameOrigin(texImage, url);
-    // texImage.crossOrigin = 'Anonymous';
 	texImage.onload = function(){
 		gl.bindTexture( gl.TEXTURE_2D, texture );
 		gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
@@ -946,7 +949,7 @@ function configureTexture( url ){
 			gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
 		}
 	};
-	
+	requestCORSIfNotSameOrigin(texImage, url);
 	texImage.src = url;
 }
 
@@ -955,8 +958,6 @@ function configureBumpTexture( url ){
 	//gl.activeTexture( gl.TEXTURE1 );
 	bumpTexImage = null;
 	bumpTexImage = new Image();
-	requestCORSIfNotSameOrigin(bumpTexImage, url);
-    // bumpTexImage.crossOrigin = 'Anonymous';
 	bumpTexImage.onload = function(){
 		gl.bindTexture( gl.TEXTURE_2D, bumpTexture );
 		gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
@@ -964,19 +965,20 @@ function configureBumpTexture( url ){
 		gl.texParameteri( gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR );
 		gl.texParameteri( gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR );
 	};
-	
+	requestCORSIfNotSameOrigin(bumpTexImage, url);
 	bumpTexImage.src = url;
 }
+
 var faceUrl = [
-	'textures/pos-x.jpg',
-	'textures/neg-x.jpg',
-	'textures/neg-y.jpg',
-	'textures/pos-y.jpg',
-	'textures/pos-z.jpg',
-	'textures/neg-z.jpg'
+	'./textures/skyBoximg/pos-x.jpg',
+	'./textures/skyBoximg/neg-x.jpg',
+	'./textures/skyBoximg/neg-y.jpg',
+	'./textures/skyBoximg/pos-y.jpg',
+	'./textures/skyBoximg/pos-z.jpg',
+	'./textures/skyBoximg/neg-z.jpg',
 ];
 
-var cubemap_image_cnt = 0;
+var cubemap_image_cnt = 0;    
 var cubemap_image = [];
 
 function configureCubeMapTexture(){
@@ -984,10 +986,7 @@ function configureCubeMapTexture(){
 	//gl.activeTexture( gl.TEXTURE0 );
 	gl.bindTexture( gl.TEXTURE_CUBE_MAP, cubemapTexture );
 	for( var i = 0; i < 6; i++ ){
-        cubemap_image[i] = new Image();
-		// cubemap_image[i].crossOrigin = 'Anonymous';
-		requestCORSIfNotSameOrigin(cubemap_image[i], faceUrl[i]);
-		cubemap_image[i].src = faceUrl[i];
+		cubemap_image[i] = new Image();
 		cubemap_image[i].onload = function(){ 
 			if( ++cubemap_image_cnt<6)
 				return;
@@ -999,6 +998,7 @@ function configureCubeMapTexture(){
 				
 				gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
 				gl.texImage2D( gl.TEXTURE_CUBE_MAP_POSITIVE_X + k , 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, cubemap_image[k] );
+				
 				thiscanvas = document.createElement("canvas");
 				thiscanvas.width = cubemap_image[k].width;
 				thiscanvas.height = cubemap_image[k].height;
@@ -1022,7 +1022,8 @@ function configureCubeMapTexture(){
 			gl.uniform1f(gl.getUniformLocation(program,"averageBrightness"), averageBrightness);
 			gl.uniform1f(gl.getUniformLocation(program,"maxBrightness"), maxBrightness);
 		}
-
+		requestCORSIfNotSameOrigin(cubemap_image[i], faceUrl[i]);
+		cubemap_image[i].src = faceUrl[i];
 	}
 }
 
