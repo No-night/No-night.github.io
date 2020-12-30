@@ -1,7 +1,7 @@
 "use strict";
 
 const{vec3, vec4, mat3, mat4, vec2, quat} = glMatrix;
-
+var zs;
 var canvas;
 var gl;
 var programskybox;
