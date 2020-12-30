@@ -216,46 +216,7 @@ function handleKeyDown() {
 			dz -= step;
 			document.getElementById("zpos").value = dz;
 			break;
-		case 72: // h//xtheta-
-			dxt -= stept;
-			document.getElementById("xrot").value = dxt;
-			break;
-		case 75: // k//xtheta+
-			dxt += stept;
-			document.getElementById("xrot").value = dxt;
-			break;
-		case 85: // u//ytheta+
-			dyt += stept;
-			document.getElementById("yrot").value = dyt;
-			break;
-		case 74: // j//ytheta-
-			dyt -= stept;
-			document.getElementById("yrot").value = dyt;
-			break;
-		case 78: // n//ztheta+
-			dzt -= stept;
-			document.getElementById("zrot").value = dzt;
-			break;
-		case 77: // m//ztheta-
-			dzt += stept;
-			document.getElementById("zrot").value = dzt;
-			break;
-		case 100: case 52: // 4 // theta--
-			theta += stept;
-			document.getElementById("theta").value=theta;
-			break;
-		case 102: case 54: // 6 // theta++
-			theta -= stept;
-			document.getElementById("theta").value=theta;
-			break;
-		case 104: case 56: // 8 // phi++
-			phi += stept;
-			document.getElementById("phi").value=phi;
-			break;
-		case 98: case 50: // 2 // phi--
-			phi -= stept;
-			document.getElementById("phi").value=phi;
-			break;
+
 		case 107: case 61: // + // radius ++
 			radius += step;
 			document.getElementById("radius").value=radius;
@@ -267,7 +228,6 @@ function handleKeyDown() {
 		case 82: // r//reset
 			dx = dy = dz = 0;
 			dxt = dyt = dzt = 0;
-			dxz = dyz = dzz = 0;
 			theta = phi = 0.0;
 			radius = 6.0;
 			document.getElementById("xpos").value = dx;
@@ -380,7 +340,7 @@ window.onload = function initWindow(){
 	configureCubeMapTexture();
 	
 	if( texture === null ){
-	    var url = "./textures/world.jpg";
+	    var url = "./textures/wood.jpg";
 	    configureTexture( url );
 	}
 	if( bumpTexture === null ){
@@ -1099,3 +1059,4 @@ function buildSkyBox(){
 	//gl.uniform1i( gl.getUniformLocation( programskybox, "texCubemap" ), 0 );
 	
 }
+
