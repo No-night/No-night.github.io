@@ -341,7 +341,9 @@ window.onload = function initWindow(){
 	
 	if( texture === null ){
 	    var url = "./textures/wood.jpg";
+	    console.log(url);
 	    configureTexture( url );
+	    console.log('ok');
 	}
 	if( bumpTexture === null ){
 	    var url = "./textures/roof.jpg";
