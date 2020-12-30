@@ -361,7 +361,7 @@ function initObjBuffers(){
 }
 
 function initInterface(){
-	fileInput = document.getElementById("modelInput");
+	fileInput = document.getElementById("fileInput");
 	fileInput.addEventListener("change", function (event) {
 		var file = fileInput.files[0];
 		var reader = new FileReader();
@@ -1059,4 +1059,7 @@ function buildSkyBox(){
 	//gl.uniform1i( gl.getUniformLocation( programskybox, "texCubemap" ), 0 );
 	
 }
+
+
+
 
