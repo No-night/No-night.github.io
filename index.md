@@ -37,5 +37,5 @@
 
 ### 实验7:
 
-请点击[实验7](/lab7/index.html)
+请点击[实验7](/lab7plus/index.html)
 
