@@ -76,13 +76,13 @@ var lastMouseY = null;
 
 var currentKey = [];
 
-/* variables for interface control */
-var projectionType = 1; // default is Orthographic(1), Perspective(2)
-var drawType = 1; // default is WireFrame(1), Solid(2)
-var viewType = [0]; // default is orthographic frontview(1), leftView(2), topView(3), isoview(4)
-var viewcnt = 0; // view count default = 0, in orthographic or perspective mode
 
-var changePos = 1; // default is Object(1), camera(2)
+var projectionType = 1; 
+var drawType = 1; 
+var viewType = [0];
+var viewcnt = 0;
+
+var changePos = 1;
 
 var currentColor = vec4.fromValues(1.0, 0.0, 0.0, 1.0);
 var textureAlpha = 1.0;
@@ -90,7 +90,6 @@ var bumpDepth = 0;
 
 var program = null;
 
-// add deam
 var normals = [];
 var normalLoc = null;
 
@@ -340,10 +339,8 @@ window.onload = function initWindow(){
 	configureCubeMapTexture();
 	
 	if( texture === null ){
-	    var url = "./textures/wood.jpg";
-	    console.log(url);
+	    var url = "./textures/world.jpg";
 	    configureTexture( url );
-	    console.log('ok');
 	}
 	if( bumpTexture === null ){
 	    var url = "./textures/roof.jpg";
@@ -1061,7 +1058,5 @@ function buildSkyBox(){
 	//gl.uniform1i( gl.getUniformLocation( programskybox, "texCubemap" ), 0 );
 	
 }
-
-
 
 
