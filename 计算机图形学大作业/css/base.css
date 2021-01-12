@@ -1,0 +1,167 @@
+body{
+	margin:0px;
+	border:0px;
+	padding:0px;
+	width:100%;
+	height:100%;
+	background-reapet:no-repeat;
+	background-size:100% 100%;
+	background-attachment:fixed;
+	background-color:aliceblue;
+}
+a{
+	text-decoration:none;
+	color:steelblue;
+}
+
+.contient{
+    width:100%;
+    margin:0 auto;
+    margin-top:-16px;
+}
+
+.dht1{
+    width:280px;
+    float:left;
+    margin-right:200px;
+    position: relative;
+    overflow: hidden;
+    margin-top:1%;
+}
+.dht2{
+    width:100px;
+    float:left;
+    margin-right:10px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+.under{
+	margin-top:16px;
+	height:10px;
+	width:80px;
+	border:none;
+	border-top:1px solid white;
+	
+}
+.hrunder{
+	margin-left:50px;
+	margin-top:16px;
+	height:10px;
+	width:700px;
+	border:none;
+	border-top:1px dotted steelblue;
+}
+              
+      
+.contient2{
+	width:1024px;
+	margin:0 auto;
+}
+.contient2 div{
+	float:left;
+}
+
+
+.contient2_2{
+	width:200px;
+	height:300px;
+	
+	position:fixed;
+	border:1px solid steelblue;
+	border-radius:5px;
+}
+.contient2_2:hover{
+	border:1px solid white;
+}
+						   
+.contient2_3{
+	width:800px;
+	height:1000px;
+	margin-left:220px;
+	border:1px solid white;
+	border-radius:5px;
+}
+.contient2_3:hover{
+	border:1px solid steelblue;
+}
+.contient2_3 svg{
+	margin-left:30px;
+	margin-top:20px;
+}
+h2{
+	color:steelblue;
+	margin-left:40px;
+    margin-right:40px;
+}
+.contient2_3 p{
+	color:steelblue;
+	margin-left:40px;
+	margin-right:40px;
+	text-indent:2em;
+}
+.contient2 ul{
+	padding:px 15px;
+	float:left;
+	color:white;
+	margin-left:40px;
+}
+.contient2 ul li{
+	list-style:none;
+}             
+.contient3{
+	width:100%;
+	margin:0 auto;
+}
+input[type=range]{ 
+    margin-top: 8px;
+    outline: none; 
+    -webkit-appearance: none;/*清除系统默认样式*/  
+    width:40% !important;  
+    background: -webkit-linear-gradient(#61bd12, #61bd12) no-repeat, #61bd12;  
+    background-size: 30% 100%;/*设置左右宽度比例*/  
+    height: 3px;/*横条的高度*/  
+} 
+ /*拖动块的样式*/  
+input[type=range]::-webkit-slider-thumb {  
+    -webkit-appearance: none;/*清除系统默认样式*/  
+    height:16px;/*拖动块高度*/  
+    width: 16px;/*拖动块宽度*/  
+    background: #fff;/*拖动块背景*/ 
+    border-radius: 50%; /*外观设置为圆形*/  
+    border: solid 1px #61bd12; /*设置边框*/  
+}
+table{
+	color:steelblue;
+	float:left;
+	font-size:12px;
+	border-collapse:collapse;
+
+}
+td{
+	border: 1px solid steelblue;
+}
+button {
+    background-color: white; /* Green */
+    border: none;
+    color: #61bd12;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	border:1px solid #61bd12;
+	border-radius:4px;
+}
+
+#choosebox a{
+	color:steelblue;
+	border:1px solid steelblue;
+	padding:3px 3px;
+}
+
+#choosebox a:hover{
+	color:lightsteelblue;
+	border:1px solid lightsteelblue;
+}
+

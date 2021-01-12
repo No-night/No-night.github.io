@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+   <head>
+	  <meta charset="utf-8">
+       <title>
+	    你说得队
+       </title>
+	   <link href="css/base.css" rel="stylesheet" type="text/css">
+	   
+	   <script id="vertex-shader" type="x-shader/x-vertex">
+	       attribute  vec4 vPosition;
+	       attribute  vec4 vColor;
+	       varying vec4 fColor;
+	   
+	       uniform mat4 modelViewMatrix;
+	       uniform mat4 projectionMatrix;
+	   
+	       void main() 
+	       {
+	           fColor = vColor;
+	           gl_Position = projectionMatrix * modelViewMatrix * vPosition;
+	       } 
+	   </script>
+	   
+	   <script id="fragment-shader" type="x-shader/x-fragment">
+	       precision mediump float;
+	   
+	       varying  vec4 fColor;
+	   
+	       void main() 
+	       { 
+	           gl_FragColor = fColor;
+	       } 
+	   </script>
+	   <script type="text/javascript" src="common/webgl-utils.js"></script>
+	   <script type="text/javascript" src="common/initShaders.js"></script>
+	   
+	   <script type="text/javascript" src="common/MV.js"></script>
+	   <script type="text/javascript" src="js/hands.js"></script>
+	   
+   </head>
+<body>
+        <div class="contient">
+				<div class="contient2">
+					<h1 style="margin-left:400px;color:steelblue;">计算机图形学大作业</h1>
+					<hr style="margin-top:16px;height:10px;width:900px;border:none;border-top:1px solid steelblue;" /></a>
+					<div class="contient2_2">
+						<a>
+						    <img src="image/hand.jpg" width="50px" height="50px"style="margin-left:72px;margin-top:70px;border:1px solid white;border-radius:25px;">
+				        </a>
+				        <hr style="margin-top:16px;height:10px;width:100px;border:none;border-top:1px solid steelblue;" />
+				        <b style="margin-left:50px;"><a href="document/1.pdf" style="color:steelblue;text-align:center;">详细设计文档</a></b><br /><br />
+						<b style="margin-left:50px;"><a href="document/2.pdf" style="color:steelblue;text-align:center;">最终设计文档</a></b>
+						</div>
+					<div class="contient2_3">
+						<div>
+							<p></p>
+							<audio src="backgroundMusic.mp3" hidden autoplay loop></audio>
+
+							<div id="canvasbox">
+								<canvas id="gl-canvas" width="300" height="300" style="float:left">Oops ... your browser doesn't support the HTML5
+							    canvas
+							    element
+								</canvas>
+							</div>
+							<div id="choosebox" style="margin-left:270px;">
+								<a href="index.html" >手动调节模块</a>
+								
+								<a href="game.html" style="margin-left:20px;">动画模块</a>
+							</div>
+							<table id="ctable" >
+							    <tr align="center">
+							        <td>主体</td>
+							        <td>第一关节</td>
+							        <td>第二关节</td>
+							        <td>第三关节</td>
+							    </tr>
+							    <tr>
+							        <td><br />
+							            <div id="slider0">
+							                手&nbsp;&nbsp;臂 &nbsp;&nbsp;-180 <input type="range" min="-180" max="180" step="10" value="0" width="20px";/>180
+							            </div><br /><br />
+							            <div id="slider1">
+							                手&nbsp;&nbsp;掌 &nbsp;&nbsp;-180 <input type="range" min="-180" max="180" step="10" value="0" />180
+							            </div><br /><br />
+							        </td>
+							        <td>
+							            <div id="slider2">
+							                大拇指 &nbsp;-60<input type="range" min="-60" max="100" step="10" value="0" />100
+							            </div><br /><br />
+							        </td>
+							        <td>
+							            <div id="slider7">
+							                大拇指 &nbsp;&nbsp;-60<input type="range" min="-60" max="100" step="10" value="0" />100
+							            </div><br /><br />
+							        </td>
+							        <td>
+							
+							        </td>
+							    </tr>
+							    <tr>
+							        <td>
+							            <div id='body1'>
+							                主体1 &nbsp;&nbsp;-180<input type="range" min='-180' max='180' step="10" value="-50">180
+							            </div><br /><br />
+							        </td>
+							        <td>
+							            <div id="slider3">
+							                食&nbsp;&nbsp;&nbsp;指 &nbsp;&nbsp;-60<input type="range" min="-60" max="100" step="10" value="0" />100
+							            </div><br /><br />
+							        </td>
+							        <td>
+							            <div id="slider8">
+							                食&nbsp;&nbsp;&nbsp;指 &nbsp;&nbsp;-60<input type="range" min="-60" max="100" step="10" value="0" />100
+							            </div><br /><br />
+							        </td>
+							        <td>
+							            <div id="slider12">
+							                食&nbsp;&nbsp;&nbsp;指 &nbsp;&nbsp;-60<input type="range" min="-60" max="100" step="10" value="0" />100
+							            </div><br /><br />
+							        </td>
+							    </tr>
+							    <tr>
+							        <td>
+							            <div id='body2'>
+							                主体2 &nbsp;&nbsp;-180<input type="range" min='-180' max='180' step="10" value="-50">180
+							            </div><br /><br />
+							        </td>
+							        <td>
+							            <div id="slider4">
+							                中&nbsp;&nbsp;&nbsp;指 &nbsp;&nbsp;-60<input type="range" min="-60" max="100" step="10" value="0" />100
+							            </div><br /><br />
+							        </td>
+							        <td>
+							            <div id="slider9">
+							                中&nbsp;&nbsp;&nbsp;指 &nbsp;&nbsp;-60<input type="range" min="-60" max="100" step="10" value="0" />100
+							            </div><br /><br />
+							        </td>
+							        <td>
+							            <div id="slider13">
+							                中&nbsp;&nbsp;&nbsp;指 &nbsp;&nbsp;-60<input type="range" min="-60" max="100" step="10" value="0" />100
+							            </div><br /><br />
+							        </td>
+							    </tr>
+							    <tr>
+							        <td>
+							            <div id='body3'>
+							                主体3 &nbsp;&nbsp;-180<input type="range" min='-180' max='180' step="10" value="-50">180
+							            </div><br /><br />
+							        </td>
+							        <td>
+							            <div id="slider5">
+							                无名指 &nbsp;&nbsp;-60<input type="range" min="-60" max="100" step="10" value="0" />100
+							            </div><br /><br />
+							        </td>
+							        <td>
+							            <div id="slider10">
+							                无名指 &nbsp;&nbsp;-60<input type="range" min="-60" max="100" step="10" value="0" />100
+							            </div><br /><br />
+							        </td>
+							        <td>
+							            <div id="slider14">
+							                无名指 &nbsp;&nbsp;-60<input type="range" min="-60" max="100" step="10" value="0" />100
+							            </div><br /><br />
+							        </td>
+							    </tr>
+							    <tr>
+							        <td align="center">
+							            <button id='reset'>复原</button>
+							            <button id='re0'>0度角</button>
+							        </td>
+							        <td>
+							            <div id="slider6">
+							                小拇指 &nbsp;&nbsp;-60<input type="range" min="-60" max="100" step="10" value="0" />100
+							            </div><br /><br />
+							        </td>
+							        <td>
+							            <div id="slider11">
+							                小拇指 &nbsp;&nbsp;-60<input type="range" min="-60" max="100" step="10" value="0" />100
+							            </div><br /><br />
+							        </td>
+							        <td>
+							            <div id="slider15">
+							                小拇指 &nbsp;&nbsp;-60<input type="range" min="-60" max="100" step="10" value="0" />100
+							            </div><br /><br />
+							        </td>
+							    </tr>
+								<tr align="center">
+								    <td >
+										手势选择：<br /><br />
+								        <button type="button" id="post1">剪刀</button>
+							            <button type="button" id="post2">&nbsp;&nbsp;布&nbsp;&nbsp;</button>
+										<button type="button" id="post3">石头</button>
+								    </td>
+									<td>
+										<br />
+										<button type="button" id="postone">数字1</button>
+										<button type="button" id="posttwo">数字2</button>
+										<button type="button" id="postthree">数字3</button><br /><br />             
+										<button type="button" id="postfour">数字4</button>
+										<button type="button" id="postfive">数字5</button>
+										<br /><br />
+									</td>
+									<td>
+										<div id="scalex">
+										    x-缩放<input type="range" min="0.5" max="2" step="0.2" value="1" />
+										</div><br /> <br />
+										<div id="scaley">
+										    y-缩放<input type="range" min="0.5" max="2" step="0.2" value="1" />
+										</div><br /> <br />
+										<div id="scalez">
+										    z-缩放<input type="range" min="0.5" max="2" step="0.2" value="1" />
+										</div><br /> <br />
+							        </td>
+							        <td>
+							            <button onclick="javascript:history.go(-1)">返回</button>
+							        </td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+				</div>
+        </div>
+</body>
+</html>
